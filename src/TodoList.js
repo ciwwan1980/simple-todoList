@@ -9,7 +9,7 @@ function handleRemoveClick(index) {
     <ul>
       {props.items.map((item, index) => (
         <li key={index}>{item}
-        <button onClick={() => handleRemoveClick(index)}>Remove</button>
+        {item && <button onClick={() => handleRemoveClick(index)}>Remove</button>}
         </li>
       ))}
     </ul>
