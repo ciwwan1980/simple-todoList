@@ -16,7 +16,7 @@ function App() {
   return (
     <div>
       <TodoForm onSubmit={addItem} />
-      <TodoList items={items} onRemove={removeItem} />
+     <TodoList items={items} onRemove={removeItem} />
     </div>
   );
 }

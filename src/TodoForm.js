@@ -14,8 +14,15 @@ function TodoForm(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={inputValue} onChange={handleInputChange} />
+    <form onSubmit={handleSubmit} style={{ display: 'flex', marginBottom: '20px' }}>
+      <input type="text" value={inputValue} onChange={handleInputChange}  style={{
+          backgroundColor: '#4caf50',
+          color: 'white',
+          border: 'none',
+          padding: '10px 20px',
+          borderRadius: '0 5px 5px 0',
+          cursor: 'pointer',
+        }}/>
       <button type="submit">Add</button>
     </form>
   );
