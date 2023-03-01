@@ -8,11 +8,15 @@ function App() {
   function addItem(item) {
     setItems([...items, item]);
   }
-
+  function removeItem(index) {
+    const newItems = [...items];
+    newItems.splice(index, 1);
+    setItems(newItems);
+  }
   return (
     <div>
       <TodoForm onSubmit={addItem} />
-      <TodoList items={items} />
+      <TodoList items={items} onRemove={removeItem} />
     </div>
   );
 }
