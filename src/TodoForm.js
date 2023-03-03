@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function TodoForm(props) {
   const [inputValue, setInputValue] = useState('');
+  const [error, setError] = useState("");
 
   function handleInputChange(event) {
     setInputValue(event.target.value);
@@ -9,10 +10,14 @@ function TodoForm(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    props.onSubmit(inputValue);
-    setInputValue('');
+    if (inputValue.trim() === "") {
+      setError("Please fill out the input field.");
+    } else {
+      props.onSubmit(inputValue);
+      setInputValue("");
+      setError("");
+    }
   }
-
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
     <form onSubmit={handleSubmit} >
@@ -32,7 +37,6 @@ function TodoForm(props) {
         marginRight: '10px'
       }}
     />
- 
 
        <button
       type="submit"
@@ -49,6 +53,11 @@ function TodoForm(props) {
     >
       Submit
     </button>
+    {error && <div style={{
+            color: "red",
+            fontWeight: "bold",
+            marginTop: "5px"
+          }}>{error}</div>}
     </form>
     </div>
   );
