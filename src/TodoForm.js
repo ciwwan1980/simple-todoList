@@ -14,17 +14,43 @@ function TodoForm(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', marginBottom: '20px' }}>
-      <input type="text" value={inputValue} onChange={handleInputChange}  style={{
-          backgroundColor: '#4caf50',
-          color: 'white',
-          border: 'none',
-          padding: '10px 20px',
-          borderRadius: '0 5px 5px 0',
-          cursor: 'pointer',
-        }}/>
-      <button type="submit">Add</button>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <form onSubmit={handleSubmit} >
+     
+      <input  type="text" value={inputValue} onChange={handleInputChange}  
+      style={{
+        padding: '10px',
+        border: '1px solid #ccc',
+        borderRadius: '5px',
+        fontSize: '16px',
+        boxShadow: 'none',
+        outline: 'none',
+        transition: 'border-color 0.2s ease-in-out',
+        width: '100%',
+        maxWidth: '500px',
+        boxSizing: 'border-box',
+        marginRight: '10px'
+      }}
+    />
+ 
+
+       <button
+      type="submit"
+      style={{
+        backgroundColor: '#007bff',
+        color: '#fff',
+        border: 'none',
+        borderRadius: '5px',
+        padding: '10px 20px',
+        fontSize: '16px',
+        cursor: 'pointer',
+        transition: 'background-color 0.2s ease-in-out'
+      }}
+    >
+      Submit
+    </button>
     </form>
+    </div>
   );
 }
 
