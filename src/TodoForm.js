@@ -19,11 +19,12 @@ function TodoForm(props) {
     }
   }
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div style={{ display: 'flex', flexDirection:"column", alignItems: 'center', padding:"10px" }}>
     <form onSubmit={handleSubmit} >
      
       <input  type="text" value={inputValue} onChange={handleInputChange}  
       style={{
+        margin:"5px",
         padding: '10px',
         border: '1px solid #ccc',
         borderRadius: '5px',
@@ -31,10 +32,11 @@ function TodoForm(props) {
         boxShadow: 'none',
         outline: 'none',
         transition: 'border-color 0.2s ease-in-out',
-        width: '100%',
+        width: '95%',
         maxWidth: '500px',
         boxSizing: 'border-box',
         marginRight: '10px'
+        
       }}
     />
 
@@ -48,6 +50,7 @@ function TodoForm(props) {
         padding: '10px 20px',
         fontSize: '16px',
         cursor: 'pointer',
+        width: '100%',
         transition: 'background-color 0.2s ease-in-out'
       }}
     >
