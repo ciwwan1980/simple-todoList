@@ -3,11 +3,21 @@ import React, { useState } from 'react';
 function TodoForm(props) {
   const [inputValue, setInputValue] = useState('');
   const [error, setError] = useState("");
+  const [tasks, setTasks] = useState([]);
+
 
   function handleInputChange(event) {
     setInputValue(event.target.value);
   }
-
+  function addTask(newTask) {
+    setTasks([...tasks, newTask]);
+  }
+  function toggleCompleted(index) {
+    const newTasks = [...tasks];
+    newTasks[index].completed = !newTasks[index].completed;
+    setTasks(newTasks);
+  }
+    
   function handleSubmit(event) {
     event.preventDefault();
     if (inputValue.trim() === "") {
@@ -20,6 +30,19 @@ function TodoForm(props) {
   }
   return (
     <div style={{ display: 'flex', flexDirection:"column", alignItems: 'center', padding:"10px" }}>
+        <ul>
+  {tasks.map((task, index) => (
+    <li key={index}>
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => toggleCompleted(index)}
+      />
+      {task.name}
+    </li>
+  ))}
+</ul>
+
     <form onSubmit={handleSubmit} >
      
       <input  type="text" value={inputValue} onChange={handleInputChange}  
